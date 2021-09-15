@@ -1,4 +1,4 @@
-const icons = [
+const boxIcon = [
     {
         name: 'apple-alt',
         family: 'fas',
@@ -115,3 +115,17 @@ const colors = {
     animal: "green",
     beverage: "yellow"
 };
+
+const contboxIcon = document.getElementById("boxicon");
+
+boxIcon.forEach(
+    (element) => {
+        const { name, family, prefix } = element;
+
+        contboxIcon.innerHTML += `
+            <div class="squareAnimal">
+            <i class="${name} ${family} ${prefix}"></i>
+                <div class="nomi-Icone">${name}</div>
+            </div> ` ;
+    }
+);
