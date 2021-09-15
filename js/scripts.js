@@ -111,11 +111,6 @@ const boxIcon = [
 ];
 
 
-const colors = {
-    food: "pink",
-    animal: "green",
-    beverage: "yellow"
-};
 
 // contenitore di Icone
 const contboxIcon = document.getElementById("boxicon");
@@ -133,3 +128,13 @@ boxIcon.forEach(
             </div> ` ;
     }
 );
+
+
+
+// coloriamo le Icone 
+const colors = {
+    food: "pink",
+    animal: "green",
+    beverage: "yellow"
+};
+// coloriamo le Icone 
