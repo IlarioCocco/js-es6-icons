@@ -1,3 +1,4 @@
+// array di oggetti(icone)
 const boxIcon = [
     {
         name: 'apple-alt',
@@ -116,15 +117,18 @@ const colors = {
     beverage: "yellow"
 };
 
+// contenitore di Icone
 const contboxIcon = document.getElementById("boxicon");
 
+
+// ciclo su tutte le Icone ed inserisco il markup HTML da inserire:
 boxIcon.forEach(
     (element) => {
-        const { name, family, prefix } = element;
+        const { name, family, prefix } = element; //destrutturazione
 
         contboxIcon.innerHTML += `
             <div class="squareAnimal">
-            <i class="${name} ${family} ${prefix}"></i>
+            <i class="${family} ${prefix}${name}"></i>
                 <div class="nomi-Icone">${name}</div>
             </div> ` ;
     }
