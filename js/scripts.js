@@ -167,10 +167,11 @@ const colorIcon = boxIcon.map(
         // console.log(element.category);
         element.color = colors[element.category]; //***se voglio accedere alle proprietà devo usar le parentesi quadrate perchè il valore è all inrerno di una variabile
         return {
-            name: element.name,
-            family: element.family,
-            prefix: element.prefix,
-            category: element.category,
+            // name: element.name,       //map
+            // family: element.family,
+            // prefix: element.prefix,
+            // category: element.category,
+            ...element,                //spread opertor
             color: colors[element.category] //creazione di un nuovo oggetto
         };
     }
@@ -179,3 +180,21 @@ const colorIcon = boxIcon.map(
 
 
 stampaIcone(colorIcon, contboxIcon);
+
+
+// creiamo una select con tipologia icone per poi filtrare nuovamente le Icone
+//creo una option per singole categorie
+
+const iconeCategorie = [];
+
+boxIcon.forEach(
+    (element) => {
+        if (iconeCategorie.includes(element.category) == false ) {
+            iconeCategorie.push(element.category);
+        }
+     
+    }
+
+);
+
+// console.log(iconeCategorie);
