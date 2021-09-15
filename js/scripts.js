@@ -112,44 +112,70 @@ const boxIcon = [
 
 
 
+const stampaIcone = (array, container) => {
+    array.forEach(
+        (element) => {
+            const { name, family, prefix, color } = element; //destrutturazione
+
+            container.innerHTML += `
+            <div class="squareAnimal">
+            <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
+                <div class="nomi-Icone">${name}</div>
+            </div> ` ;
+        }
+    );
+
+}
+
+// PROGRAMMA PRINCIPALE
+
 // contenitore di Icone
 const contboxIcon = document.getElementById("boxicon");
 
 
+// ---------------------
 // ciclo su tutte le Icone ed inserisco il markup HTML da inserire:
-boxIcon.forEach(
-    (element) => {
-        const { name, family, prefix } = element; //destrutturazione
 
-        contboxIcon.innerHTML += `
-            <div class="squareAnimal">
-            <i class="${family} ${prefix}${name}"></i>
-                <div class="nomi-Icone">${name}</div>
-            </div> ` ;
-    }
-);
+// boxIcon.forEach(
+//     (element) => {
+//         const { name, family, prefix } = element; //destrutturazione
+
+//         contboxIcon.innerHTML += `
+//             <div class="squareAnimal">
+//             <i class="${family} ${prefix}${name}"></i>
+//                 <div class="nomi-Icone">${name}</div>
+//             </div> ` ;
+//     }
+// );
+// ---------------------
 
 
-// coloriamo le Icone 
+
+// coloriamo le Icone ***
 const colors = {
     food: "violet",
     animal: "green",
     beverage: "orange"
 };
-// coloriamo le Icone 
 
+
+// coloriamo le Icone 
 const colorIcon = boxIcon.map(
     (element) => {
         // console.log(element)
         // element.color = "verifica";
         // console.log(element.category);
-        element.color = colors[element.category];
-        return element;
+        element.color = colors[element.category]; //***se voglio accedere alle proprietà devo usar le parentesi quadrate perchè il valore è all inrerno di una variabile
+        return {
+            name: element.name,
+            family: element.family,
+            prefix: element.prefix,
+            category: element.category,
+            color: colors[element.category] //creazione di un nuovo oggetto
+        };
     }
-
 );
-
-console.log(colorIcon);
-
+// console.log(colorIcon);
 
 
+stampaIcone(colorIcon, contboxIcon);
