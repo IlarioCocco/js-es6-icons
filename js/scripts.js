@@ -130,11 +130,26 @@ boxIcon.forEach(
 );
 
 
-
 // coloriamo le Icone 
 const colors = {
-    food: "pink",
+    food: "violet",
     animal: "green",
-    beverage: "yellow"
+    beverage: "orange"
 };
 // coloriamo le Icone 
+
+const colorIcon = boxIcon.map(
+    (element) => {
+        // console.log(element)
+        // element.color = "verifica";
+        // console.log(element.category);
+        element.color = colors[element.category];
+        return element;
+    }
+
+);
+
+console.log(colorIcon);
+
+
+
