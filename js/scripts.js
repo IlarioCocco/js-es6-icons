@@ -114,7 +114,7 @@ const boxIcon = [
 
 const stampaIcone = (array, container) => {
 
-    container.innerHTML = " ";
+    container.innerHTML = "";
     array.forEach(
         (element) => {
             const { name, family, prefix, color } = element; //destrutturazione
@@ -217,10 +217,14 @@ selezioneCategorie.addEventListener("change",
 
         const filtroIcone = colorIcon.filter(
             (element) => {
-                if (element.category == selezioneCategorie.value ) {
+                if (selezioneCategorie.value == "") {
                     return true;
                 }
-                    return false;
+
+                if (element.category == selezioneCategorie.value) {
+                    return true;
+                }
+                return false;
             }
 
         );
