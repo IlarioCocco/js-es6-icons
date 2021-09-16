@@ -113,6 +113,8 @@ const boxIcon = [
 
 
 const stampaIcone = (array, container) => {
+
+    container.innerHTML = " ";
     array.forEach(
         (element) => {
             const { name, family, prefix, color } = element; //destrutturazione
@@ -198,3 +200,32 @@ boxIcon.forEach(
 );
 
 // console.log(iconeCategorie);
+
+const selezioneCategorie = document.getElementById("tipologia")
+// console.log(selezioneCategorie);  //debug lettura prova visualizzazione select
+
+iconeCategorie.forEach(
+    (element) => {
+        selezioneCategorie.innerHTML += `<option value="${element}">${element}</option>`;
+    }
+);
+
+// azione su una select:
+selezioneCategorie.addEventListener("change",
+    function() {
+        //recupero il valore della sect
+
+        const filtroIcone = colorIcon.filter(
+            (element) => {
+                if (element.category == selezioneCategorie.value ) {
+                    return true;
+                }
+                    return false;
+            }
+
+        );
+        stampaIcone(filtroIcone, contboxIcon)
+            
+    }
+
+);
