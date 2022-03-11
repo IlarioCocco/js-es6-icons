@@ -111,7 +111,6 @@ const boxIcon = [
 ];
 
 
-
 const stampaIcone = (array, container) => {
 
     container.innerHTML = "";
@@ -120,33 +119,30 @@ const stampaIcone = (array, container) => {
             const { name, family, prefix, color } = element; //destrutturazione
             // console.log(`${name}, ${family}, ${prefix}, ${color}`); //debug
 
-            container.innerHTML += `<div class="squareAnimal"><i class="${family} ${prefix}${name}" style="color: ${color}"></i>
-            <div class="nomi-Icone">${name}</div> </div>`;
+            container.innerHTML += 
+            `<div class="squareAnimal"><i class="${family} ${prefix}${name}" style="color: ${color}"></i><div class="nomi-Icone">${name}</div> </div>`;
         }
     );
 }
 
 // PROGRAMMA PRINCIPALE
-
 // contenitore di Icone
 const contboxIcon = document.getElementById("boxicon");
+
 
 
 // ---------------------
 // ciclo su tutte le Icone ed inserisco il markup HTML da inserire:
 
-// boxIcon.forEach(
-//     (element) => {
-//         const { name, family, prefix } = element; //destrutturazione
+boxIcon.forEach((element) => {
+    const { name, family, prefix } = element; //destrutturazione
 
-//         contboxIcon.innerHTML += `
-//             <div class="squareAnimal">
-//             <i class="${family} ${prefix}${name}"></i>
-//                 <div class="nomi-Icone">${name}</div>
-//             </div> ` ;
-//     }
-// );
+    contboxIcon.innerHTML += 
+    `<div class="squareAnimal"><i class="${family} ${prefix}${name}"></i><div class="nomi-Icone">${name}</div></div>`;
+    }
+);
 // ---------------------
+
 
 
 
@@ -156,6 +152,7 @@ const colors = {
     animal: "green",
     beverage: "orange"
 };
+
 
 
 // coloriamo le Icone 
@@ -184,8 +181,9 @@ stampaIcone(colorIcon, contboxIcon);
 // creiamo una select con tipologia icone per poi filtrare nuovamente le Icone
 //creo una option per singole categorie
 
-const iconeCategorie = [];
 
+
+const iconeCategorie = [];
 boxIcon.forEach((element) => {
         if (iconeCategorie.includes(element.category) == false ) {
             iconeCategorie.push(element.category);
@@ -198,10 +196,14 @@ boxIcon.forEach((element) => {
 const selezioneCategorie = document.getElementById("tipologia")
 // console.log(selezioneCategorie);  //debug lettura prova visualizzazione select
 
+
+
 iconeCategorie.forEach((element) => {
         selezioneCategorie.innerHTML += `<option value="${element}">${element}</option>`;
     }
 );
+
+
 
 // azione su una select:
 selezioneCategorie.addEventListener("change",
@@ -210,7 +212,7 @@ selezioneCategorie.addEventListener("change",
 
         const filtroIcone = colorIcon.filter((element) => {
                 if (selezioneCategorie.value == "") {
-                    return true;
+                    return true; 
                 }
 
                 if (element.category == selezioneCategorie.value) {
@@ -218,10 +220,11 @@ selezioneCategorie.addEventListener("change",
                 }
                 return false;
             }
-
         );
-        stampaIcone(filtroIcone, contboxIcon)
-            
+        stampaIcone(filtroIcone, contboxIcon);
     }
-
 );
+
+
+
+
