@@ -109,6 +109,21 @@ const boxIcon = [
         category: "animal"
     },
 ];
+// -------------------------------------------------------------------------
+// PROGRAMMA PRINCIPALE
+// contenitore di Icone
+const contboxIcon = document.getElementById("boxicon");
+// ciclo su tutte le Icone ed inserisco il markup HTML da inserire:
+    boxIcon.forEach((element) => { 
+    // console.log(element); //debuging ------!!!!!!!!!!!!! verifica in console
+    const { name, family, prefix } = element; // attraverso la destrutturazione tiro fuori le proprietà dell obj sottoforma di variabili
+    contboxIcon.innerHTML += `<div class="squareAnimal"><i class="${family} ${prefix}${name}"></i><div class="nomi-Icone">${name}</div></div>`;
+    }
+);
+// --------------------------------------------------------------------------
+
+
+
 
 
 const stampaIcone = (array, container) => {
@@ -116,32 +131,13 @@ const stampaIcone = (array, container) => {
     container.innerHTML = "";
 
     array.forEach((element) => {
-            const { name, family, prefix, color } = element; //destrutturazione
-            // console.log(`${name}, ${family}, ${prefix}, ${color}`); //debug
-
-            container.innerHTML += 
-            `<div class="squareAnimal"><i class="${family} ${prefix}${name}" style="color: ${color}"></i><div class="nomi-Icone">${name}</div> </div>`;
+        // console.log(element); //debuging ------!!!!!!!!!!!!! verifica in console
+        const { name, family, prefix, color } = element; // attraverso la destrutturazione tiro fuori le proprietà dell obj sottoforma di variabili
+        container.innerHTML += `<div class="squareAnimal"><i class="${family} ${prefix}${name}" style="color: ${color}"></i><div class="nomi-Icone">${name}</div> </div>`;
         }
     );
 }
 
-// PROGRAMMA PRINCIPALE
-// contenitore di Icone
-const contboxIcon = document.getElementById("boxicon");
-
-
-
-// ---------------------
-// ciclo su tutte le Icone ed inserisco il markup HTML da inserire:
-
-boxIcon.forEach((element) => {
-    const { name, family, prefix } = element; //destrutturazione
-
-    contboxIcon.innerHTML += 
-    `<div class="squareAnimal"><i class="${family} ${prefix}${name}"></i><div class="nomi-Icone">${name}</div></div>`;
-    }
-);
-// ---------------------
 
 
 
