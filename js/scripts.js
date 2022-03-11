@@ -115,18 +115,15 @@ const boxIcon = [
 const stampaIcone = (array, container) => {
 
     container.innerHTML = "";
-    array.forEach(
-        (element) => {
-            const { name, family, prefix, color } = element; //destrutturazione
 
-            container.innerHTML += `
-            <div class="squareAnimal">
-            <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
-                <div class="nomi-Icone">${name}</div>
-            </div> ` ;
+    array.forEach((element) => {
+            const { name, family, prefix, color } = element; //destrutturazione
+            // console.log(`${name}, ${family}, ${prefix}, ${color}`); //debug
+
+            container.innerHTML += `<div class="squareAnimal"><i class="${family} ${prefix}${name}" style="color: ${color}"></i>
+            <div class="nomi-Icone">${name}</div> </div>`;
         }
     );
-
 }
 
 // PROGRAMMA PRINCIPALE
@@ -189,14 +186,11 @@ stampaIcone(colorIcon, contboxIcon);
 
 const iconeCategorie = [];
 
-boxIcon.forEach(
-    (element) => {
+boxIcon.forEach((element) => {
         if (iconeCategorie.includes(element.category) == false ) {
             iconeCategorie.push(element.category);
         }
-     
     }
-
 );
 
 // console.log(iconeCategorie);
@@ -204,8 +198,7 @@ boxIcon.forEach(
 const selezioneCategorie = document.getElementById("tipologia")
 // console.log(selezioneCategorie);  //debug lettura prova visualizzazione select
 
-iconeCategorie.forEach(
-    (element) => {
+iconeCategorie.forEach((element) => {
         selezioneCategorie.innerHTML += `<option value="${element}">${element}</option>`;
     }
 );
@@ -215,8 +208,7 @@ selezioneCategorie.addEventListener("change",
     function() {
         //recupero il valore della sect
 
-        const filtroIcone = colorIcon.filter(
-            (element) => {
+        const filtroIcone = colorIcon.filter((element) => {
                 if (selezioneCategorie.value == "") {
                     return true;
                 }
